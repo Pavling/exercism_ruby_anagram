@@ -2,11 +2,12 @@ class Anagram
 
 
   def initialize(input)
-    @input = normalize(input)
+    @input = input
+    @normalized_input = normalize(input)
   end
 
   def match(potential_anagrams)
-    potential_anagrams.select{|element| normalize(element) == @input}
+    potential_anagrams.select{|element| element != @input && normalize(element) == @normalized_input}
   end
 
   private
